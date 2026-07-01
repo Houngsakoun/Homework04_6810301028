@@ -39,6 +39,32 @@ namespace FileProcessing
         /// </summary>
         private void btRead_Click(object sender, EventArgs e)
         {
+            // [ดักจับเด้งเตือน 1] เช็กว่าช่องชื่อไฟล์ว่างเปล่าหรือไม่
+            if (string.IsNullOrWhiteSpace(tbFileName.Text))
+            {
+                System.Media.SystemSounds.Exclamation.Play(); // เปิดเสียงเตือนระบบ
+                tbFileName.BackColor = System.Drawing.Color.MistyRose; // เปลี่ยนช่องเป็นสีแดงอ่อนๆ ให้เห็นชัดๆ
+
+                MessageBox.Show("กรุณากดปุ่ม Browse เพื่อเลือกไฟล์ก่อนกดอ่านข้อมูลครับ",
+                                "ไม่พบไฟล์", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                tbFileName.Focus(); // เอาเคอร์เซอร์เมาส์ไปจิ้มรอกดพิมพ์
+                return;
+            }
+
+            // [ดักจับเด้งเตือน 2] เช็กว่าไฟล์นั้นมีอยู่จริงบนเครื่องคอมพิวเตอร์หรือไม่
+            if (!File.Exists(tbFileName.Text))
+            {
+                System.Media.SystemSounds.Hand.Play(); // เปิดเสียง Error
+                tbFileName.BackColor = System.Drawing.Color.MistyRose; // เปลี่ยนช่องเป็นสีแดงอ่อนๆ
+
+                MessageBox.Show("ไม่พบไฟล์ตามเส้นทางที่ระบุ กรุณาตรวจสอบหรือกดเลือกไฟล์ใหม่อีกครั้งครับ",
+                                "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            tbFileName.BackColor = System.Drawing.Color.White; // ถ้าผ่านเงื่อนไขให้คืนสีขาวปกติ
+
             // ล้างกล่องข้อความเก่าก่อนโชว์ข้อมูลใหม่
             rtbShow.Clear();
 
@@ -107,6 +133,32 @@ namespace FileProcessing
         /// </summary>
         private void btReadCSV_Click(object sender, EventArgs e)
         {
+            // [ดักจับเด้งเตือน 1] เช็กว่าช่องชื่อไฟล์ว่างเปล่าหรือไม่
+            if (string.IsNullOrWhiteSpace(tbFileName.Text))
+            {
+                System.Media.SystemSounds.Exclamation.Play(); // เปิดเสียงเตือนระบบ
+                tbFileName.BackColor = System.Drawing.Color.MistyRose; // เปลี่ยนช่องเป็นสีแดงอ่อนๆ
+
+                MessageBox.Show("กรุณากดปุ่ม Browse เพื่อเลือกไฟล์ก่อนกดอ่านข้อมูล CSV ครับ",
+                                "ไม่พบไฟล์", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                tbFileName.Focus();
+                return;
+            }
+
+            // [ดักจับเด้งเตือน 2] เช็กว่าไฟล์นั้นมีอยู่จริงบนเครื่องคอมพิวเตอร์หรือไม่
+            if (!File.Exists(tbFileName.Text))
+            {
+                System.Media.SystemSounds.Hand.Play(); // เปิดเสียง Error
+                tbFileName.BackColor = System.Drawing.Color.MistyRose; // เปลี่ยนช่องเป็นสีแดงอ่อนๆ
+
+                MessageBox.Show("ไม่พบไฟล์ CSV ตามเส้นทางที่ระบุ กรุณาตรวจสอบหรือกดเลือกไฟล์ใหม่อีกครั้งครับ",
+                                "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            tbFileName.BackColor = System.Drawing.Color.White; // ถ้าผ่านเงื่อนไขให้คืนสีขาวปกติ
+
             // ล้างตารางเก่าก่อนโหลดข้อมูลใหม่ทุกครั้ง
             dgvData.Rows.Clear();
             dgvData.Columns.Clear();
@@ -206,6 +258,7 @@ namespace FileProcessing
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     tbFileName.Text = ofd.FileName;
+                    tbFileName.BackColor = System.Drawing.Color.White; // คืนค่าสีขาวเมื่อเลือกไฟล์สำเร็จ
                 }
             }
         }
@@ -248,6 +301,5 @@ namespace FileProcessing
                                 MessageBoxIcon.Warning);
             }
         }
-
     }   // End of frmTextView class
-} 
+}
