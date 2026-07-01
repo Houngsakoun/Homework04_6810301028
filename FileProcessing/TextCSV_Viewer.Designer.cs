@@ -1,4 +1,4 @@
-﻿namespace FileProcessing
+﻿     namespace FileProcessing
 {
 	partial class frmTextView
 	{
