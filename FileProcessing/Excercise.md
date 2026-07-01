@@ -1,261 +1,264 @@
-# 🧪 Exercise Specification
+# 📄 Text/CSV Viewer (C# Learning Project)
 
-## 🎯 Objective
+## 📌 Overview
 
-Enhance the Text/CSV Viewer project by:
+This project is a **simple Text/CSV Viewer written in C#**.  
+It is designed as a **learning project for students** to practice:
 
-* Adding interactive features
-* Practicing structured programming
-* Working with real-world datasets
-* Strengthening Git workflow
-
-***
-
-# 🧩 Part 1 — Feature Enhancement
-
-Students must extend the application by adding the following functions:
+* Basic C# programming
+* File I/O handling
+* Working with CSV data
+* Git and version control
+* Open-source and community practices
 
 ***
 
-## ✅ 1. Record Navigation
+## 🎯 Learning Objectives
 
-Implement navigation features to move through the data.
+By completing this project, students will learn:
 
-### Requirements:
+### 💻 C# Fundamentals
 
-* Add buttons or commands:
-  * `Next`
-  * `Previous`
+* Reading text and CSV files
+* String manipulation and parsing
+* Basic UI or console output (depending on your version)
+* Error handling and input validation
 
-### Behavior:
+### 🗂️ Software Engineering Basics
 
-* **Next**
-  * Move to the next record in the dataset
-* **Previous**
-  * Move to the previous record
+* Project structure
+* Code readability and maintainability
+* Separation of concerns
 
-### Key concepts to practice:
+### 🔧 Git & Version Control
 
-* Index management
-* Boundary checking:
-  ```text
-  Cannot go beyond first or last record
-  ```
+* Initialize a Git repository
+* Commit changes with meaningful messages
+* Use branches (optional for advanced students)
+* Collaborate using pull requests (if working in groups)
 
-***
+### 🌍 Open Source & Community Discipline
 
-## ✅ 2. Record Display
-
-Improve how data is shown.
-
-### Requirements:
-
-* Display one record at a time OR highlight the selected row
-* Show key fields such as:
-  * `file_name`
-  * `file_type`
-  * `signature`
-
-### Key concepts:
-
-* Data binding (UI or console formatting)
-* Clean output design
+* Understanding open-source licenses (MIT License)
+* Giving proper credit to data sources
+* Writing clean documentation
+* Respecting third-party Terms of Use
 
 ***
 
-## ✅ 3. Search Function
-
-Implement a simple search feature.
-
-### Requirements:
-
-* Allow user to input a keyword
-* Search within:
-  * file name
-  * file type
-  * signature
-
-### Example:
-
-```text
-Search: "exe"
-→ Show all records containing "exe"
-```
-
-***
-
-### Suggested Implementation:
-
-```csharp
-if (line.Contains(keyword))
-{
-    // show result
-}
-```
-
-***
-
-### Key concepts:
-
-* String matching
-* Iteration over dataset
-* Filtering results
-
-***
-
-## ✅ 4. List View (Optional but Recommended)
-
-Display multiple records in a list/table format.
-
-### Possible features:
-
-* Show first 10–20 records
-* Display index number
-* Allow selection
-
-***
-
-### Key concepts:
-
-* Loop + formatted output
-* Basic UI or structured console output
-
-***
-
-# 🌐 Part 2 — Load Full Dataset from Source
-
-## ✅ Objective
-
-Students will work with **real-world data sources**.
-
-***
-
-## ✅ Task
-
-1. Go to the official MalwareBazaar website:
-
-   👉 <https://bazaar.abuse.ch/>
-
-2. Locate dataset export or sample CSV (follow Terms of Use)
-
-3. Download a dataset file
-
-***
-
-## ✅ Update Your Program
-
-Modify the program to:
-
-* Load the **full dataset file**
-* Handle larger data size
-* Ensure program remains stable
-
-***
-
-## ⚠️ Important Requirements
-
-* Do NOT include full dataset in your submission repository
-* Use it locally for testing only
-* Respect the Terms of Use:
-  👉 <https://bazaar.abuse.ch/faq/#tos>
-
-***
-
-## ✅ Key concepts:
-
-* Handling large files
-* Performance awareness
-* External data usage
-
-***
-
-# ⚠️ Ethical Reminder (Important)
-
-This dataset contains malware-related metadata.
-
-Students must:
-
-* Use data for **learning and analysis only**
-* NOT attempt to download or execute malware
-* Follow ethical and legal guidelines
-
-***
-
-# 🔧 Part 3 — Git Practice (Required)
-
-Students must use Git during development.
-
-***
-
-## ✅ Required Steps
-
-1. Initialize your own repository
-2. Commit your progress regularly
-
-Example:
-
-```bash
-git add .
-git commit -m "Add next/previous navigation"
-```
-
-***
-
-## ✅ Suggested Commit Structure
-
-* `Initial project setup`
-* `Add CSV loading`
-* `Implement navigation feature`
-* `Add search functionality`
-* `Improve UI display`
-
-***
-
-## ✅ Learning Goal
-
-Understand:
+## 🧱 Project Structure
 
 ```
-Working → Commit → Track changes → Improve incrementally
+/TextCsvViewer
+│
+├── Program.cs
+├── CsvViewer.cs
+├── LICENSE
+├── README.md
+└── data/
+    └── malware_500.csv
 ```
 
-***
-
-# ✅ Submission Requirements
-
-Students should submit:
-
-* Their own Git repository link
-* Working project code
-* Short description of implemented features
+> Note: Some files such as `*.Designer.cs` and `*.resx` are auto-generated and should not be manually edited.
 
 ***
 
-# 📊 Evaluation Criteria (Optional for Instructor)
+## ▶️ How to Run
 
-| Criteria      | Description               |
-| ------------- | ------------------------- |
-| Functionality | Features work correctly   |
-| Code Quality  | Clean, readable code      |
-| Git Usage     | Meaningful commits        |
-| UI/Output     | Clear display             |
-| Understanding | Demonstrates key concepts |
+1. Open the project in **Visual Studio** or compatible IDE
+2. Build the solution
+3. Run the program
+4. Load a `.txt` or `.csv` file to view its contents
 
 ***
 
-# 💡 Bonus Challenges (Advanced Students)
+## Data Source
 
-* Add sorting (by date, file type)
-* Add filtering by multiple conditions
-* Load data asynchronously (advanced)
-* Build GUI with WinForms/WPF
+This project uses malware metadata from MalwareBazaar
+(https://bazaar.abuse.ch/), operated by abuse.ch.
+
+Terms of Use:
+https://bazaar.abuse.ch/faq/#tos
+
+### Modifications to Dataset
+
+The original dataset has been modified for educational purposes:
+
+- Only the first 500 records are included
+- The header line has been adjusted:
+  - From:
+    # "first_seen_utc", ...
+  - To:
+    #HEADER: "first_seen_utc", ...
+
+These changes are intended to simplify usage and improve clarity for students.
+
+The original dataset structure and attribution remain unchanged where applicable.
+``
+***
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+You are free to:
+
+* Use
+* Modify
+* Distribute
+
+As long as you include the original license notice.
+
+See the `LICENSE` file for full details.
 
 ***
 
-# ✅ Final Note to Students
+## ✅ Student Tasks
 
-> This exercise is designed to simulate real software development:
-> you will read data, process it, improve features, and manage your work using Git.
+Students are encouraged to:
+
+### Beginner
+
+* Load and display a CSV file
+* Format output neatly
+* Handle missing or invalid data
+
+### Intermediate
+
+* Add search/filter functionality
+* Highlight specific columns
+* Support large file handling
+
+### Advanced
+
+* Build a GUI (WinForms or WPF)
+* Implement sorting and column selection
+* Improve performance and memory usage
 
 ***
 
+## 🧪 Suggested Git Exercises
+
+* Create your repository
+* Commit your initial version
+* Add new features step by step
+* Write clear commit messages:
+  * ✅ `Add CSV file reader`
+  * ✅ `Fix parsing bug in column handling`
+  * ❌ `fix stuff`
+
+***
+
+## 🤝 Contribution Guidelines (For Students)
+
+* Write clean, readable code
+* Add comments when necessary
+* Respect original authors and data sources
+* Do not remove license or attribution
+* Follow project structure and naming conventions
+
+***
+
+## Contribution Policy (Current Stage)
+
+This repository is provided for **learning and reference purposes only**.
+
+At this stage of the course:
+
+- Students should NOT submit Pull Requests
+- Do NOT attempt to modify the original repository
+- Work should be done in your own copy of the project
+
+### Student Instructions
+
+1. Clone or download this repository
+2. Create your own repository
+3. Practice and modify code independently
+
+Future assignments may introduce collaboration and Pull Requests.
+***
+
+## ⚠️ Disclaimer
+
+This project may use metadata related to malware samples for educational purposes only.
+
+* Do **not** execute or download actual malware
+* Use data responsibly
+* Follow all applicable laws and policies
+
+***
+## ⚠️ Ethical Use and Dual-Use Awareness
+
+This project uses data related to malware for **educational purposes only**.
+
+Students must understand the concept of **dual-use technology**:
+
+- Software and technical knowledge can be used for **both beneficial and harmful purposes**
+- The same skills used to analyze malware can also be misused to create it
+
+### Our Objective
+
+This project is designed to:
+
+- Introduce students to real-world data handling
+- Build skills in software development and analysis
+- Promote **ethical awareness in computing**
+
+We emphasize that:
+
+- Students are expected to act as **responsible software developers**
+- The goal is to **understand and defend**, not to exploit
+- This course does **not support or encourage malicious activities**
+
+### Professional Responsibility
+
+As future professionals, students should:
+
+- Follow ethical and legal guidelines
+- Respect data sources and licenses
+- Use their knowledge to **protect systems and improve security**
+- Contribute positively to the software community
+
+> We aim to educate **ethical programmers**, not individuals who misuse technology.
+
+***
+
+## 👨‍🏫 Instructor
+
+**Sarayut Chaisuriya**  
+C# Instructor / Software Development Educator
+
+***
+
+## 💡 Final Note
+
+This project is not just about coding—it is about becoming a **responsible software developer**:
+
+* Write clean code
+* Use proper tools
+* Respect licenses
+* Learn continuously
+
+***
+
+# 📂 FileProcessing - Data Filtering & Validation
+
+โปรเจกต์นี้เป็นโปรแกรม Windows Forms Application (C#) สำหรับการอ่านและประมวลผลไฟล์ข้อมูลขนาดใหญ่ (เช่น `.csv` และ `.txt`) โดยมีฟีเจอร์หลักในการจำกัดจำนวนแถวที่ต้องการอ่านและกรองข้อมูล (Filtering) เพื่อป้องกันปัญหาหน่วยความจำ (RAM) เต็ม และเพิ่มประสิทธิภาพในการแสดงผล
+
+## 🚀 ฟีเจอร์หลัก (Features & Test Cases)
+โปรแกรมนี้ได้ผ่านการทดสอบตาม Test Plan จำนวน 5 กรณี ดังนี้:
+
+1. **Partial Loading (จำกัดช่วงข้อมูล):** สามารถระบุ `StartRow` และ `EndRow` เพื่อดึงข้อมูลมาแสดงผลเฉพาะช่วงที่ต้องการได้ (เช่น โหลดแค่แถวที่ 1-20)
+2. **Invalid Range Validation (ป้องกันข้อผิดพลาด):** มีระบบแจ้งเตือน (MessageBox) และดักจับ Error กรณีผู้ใช้กรอกช่วงแถวผิดพลาด (เช่น EndRow น้อยกว่า StartRow)
+3. **Data Filtering (กรองข้อมูล):** สามารถระบุคำ (Keyword) ในช่อง Filter เพื่อค้นหาและแสดงผลเฉพาะแถวที่มีคำนั้นๆ ได้ (เช่น กรองหาคำว่า `exe`)
+4. **Combined Condition (เงื่อนไขร่วม - Bonus):** สามารถจำกัดช่วงแถว (Range) และกรองคำ (Filter) ไปพร้อมๆ กันได้อย่างสมบูรณ์แบบ
+5. **Text UI Validation:** รองรับการอ่านไฟล์หน้าแท็บ Text แบบจำกัดแถว โดยไม่มีปัญหา UI ซ้อนทับกัน (RichTextBox ไม่ทับปุ่มควบคุม)
+
+## 🛠️ สภาพแวดล้อมที่ใช้ทดสอบ (Environment)
+* **OS:** Windows 11
+* **Language:** C# (.NET Framework / Windows Forms)
+* **Test Data Set:** `malware_500.csv`
+
+## 👨‍💻 ผู้จัดทำ
+**Hongsakoun Sisavathdy**
+(อัปโหลดโปรเจกต์และรายงานผลการทดสอบ Test Report)

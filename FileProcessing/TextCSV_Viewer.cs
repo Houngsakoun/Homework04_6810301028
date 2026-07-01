@@ -10,7 +10,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-// ... (ตัดส่วนลิขสิทธิ์ออกนิดหน่อยเพื่อให้สั้นลงตอนแสดงผล แต่ในโค้ดจริงมีครบครับ)
+// (ส่วนลิขสิทธิ์ย่อไว้เพื่อความกระชับ)
 */
 using System;
 using System.IO;
@@ -26,6 +26,12 @@ namespace FileProcessing
         public frmTextView()
         {
             InitializeComponent();
+
+            // ผูก Event ดักจับการพิมพ์ให้กับ TextBox ทั้ง 4 ช่อง เพื่อให้รับแค่ตัวเลข
+            tbStartRow.KeyPress += AllowOnlyNumbers_KeyPress;
+            tbEndRow.KeyPress += AllowOnlyNumbers_KeyPress;
+            tbStartRowCsv.KeyPress += AllowOnlyNumbers_KeyPress;
+            tbEndRowCsv.KeyPress += AllowOnlyNumbers_KeyPress;
         }
 
         /// <summary>
@@ -220,5 +226,28 @@ namespace FileProcessing
         private void rtbShow_TextChanged(object sender, EventArgs e)
         {
         }
+
+        private void tbStartRowCsv_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// ฟังก์ชันสำหรับดักจับคีย์บอร์ด อนุญาตให้พิมพ์ได้แค่ตัวเลขและปุ่มควบคุม (เช่น Backspace) พร้อมแจ้งเตือนเมื่อพิมพ์ผิด
+        /// </summary>
+        private void AllowOnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // ถ้าปุ่มที่กด ไม่ใช่ปุ่มควบคุม (เช่น Backspace) และ ไม่ใช่ตัวเลข (0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // สั่งปฏิเสธการพิมพ์ตัวอักษรนั้นลงในช่อง
+
+                // เด้งหน้าต่างแจ้งเตือนให้ผู้ใช้รู้
+                MessageBox.Show("กรุณากรอกเฉพาะตัวเลข (0-9) เท่านั้นครับ",
+                                "แจ้งเตือนการพิมพ์",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
     }   // End of frmTextView class
-} // <--- ผมเติมปีกกาปิดตัวที่ขาดหายไปให้ตรงนี้เรียบร้อยครับ!
+}

@@ -229,6 +229,7 @@
             this.tbStartRowCsv.Name = "tbStartRowCsv";
             this.tbStartRowCsv.Size = new System.Drawing.Size(124, 22);
             this.tbStartRowCsv.TabIndex = 5;
+            this.tbStartRowCsv.TextChanged += new System.EventHandler(this.tbStartRowCsv_TextChanged);
             // 
             // label4
             // 
